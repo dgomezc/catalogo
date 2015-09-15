@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using VemaelCatalogo.Services;
 using VemaelCatalogo.ViewModels;
 using VemaelCatalogo.Views;
 using Windows.ApplicationModel;
@@ -39,8 +40,8 @@ namespace VemaelCatalogo
             _container.RegisterWinRTServices();
 
             _container.PerRequest<MainPageViewModel>();
-            //_container.PerRequest<ContactDetailViewModel>();
-            //_container.Singleton<IContactsService, ContactsService>();
+            _container.PerRequest<CategoryDetailViewModel>();
+            _container.Singleton<ICategoriesService, CategoriesService>();
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
